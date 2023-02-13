@@ -1,5 +1,9 @@
 arm_64bit=1
 
+# For fastboot mode USB should be in OTG mode
+#   thus we apply the overlay for it
+dtoverlay=dwc2
+
 # if you want to use the serial console
 enable_uart=1
 uart_2ndstage=1

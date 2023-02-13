@@ -1,0 +1,2 @@
+kernel_comp_addr_r=0x08000000
+kernel_comp_size=0x08000000

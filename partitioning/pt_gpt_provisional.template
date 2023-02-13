@@ -1,0 +1,26 @@
+#
+# Copyright (C) 2023 Andrei Makeev
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# Minimalistic GPT partition table image to bootstrap the device.
+
+label: gpt
+label-id: BEFE4F7E-BA51-4E41-B05F-EF18527D72C1
+unit: sectors
+sector-size: 512
+
+1  : size=${rpimisc_size_lba}, type=EBD0A0A2-B9E5-4433-87C0-68B6B72699C7, uuid=4878EF37-39C5-4E94-A87A-A52A547E1440, name="rpi_misc", attrs="RequiredPartition"
+2  : size=${rpiboot_size_lba}, type=EBD0A0A2-B9E5-4433-87C0-68B6B72699C7, uuid=857502AC-279C-4452-B05E-CBEC29399BF2, name="rpi_boot_a", bootable, attrs="RequiredPartition,LegacyBIOSBootable"
+3  : size=${rpiboot_size_lba}, type=EBD0A0A2-B9E5-4433-87C0-68B6B72699C7, uuid=2CD6D5B1-E17F-43B7-BC91-8C1516112509, name="rpi_boot_b", bootable, attrs="RequiredPartition,LegacyBIOSBootable"
